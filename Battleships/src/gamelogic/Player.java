@@ -17,7 +17,7 @@ public class Player
 	
 	private Player()
 	{
-		this._MyBoard = new Board();  //wrong -- boards are shared between players.
-		this._EnemyBoard = new Board();
+		this._MyBoard = new Board(10);  //wrong -- boards are shared between players.
+		this._EnemyBoard = new Board(10);
 	}
 }

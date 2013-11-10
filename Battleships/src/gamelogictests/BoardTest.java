@@ -11,7 +11,7 @@ public class BoardTest
 	@Test
 	public void testBoardCreation()
 	{
-		Board board = new Board();
+		Board board = new Board(10);
 		
 		assertTrue(board.getCells().length == 10);
 		
