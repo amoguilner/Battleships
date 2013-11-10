@@ -1,4 +1,4 @@
-package gamelogic.Exceptions;
+package gamelogic.exceptions;
 
 public class CellIsOutOfBoundsException extends Exception
 {
