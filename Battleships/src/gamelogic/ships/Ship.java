@@ -2,6 +2,7 @@ package gamelogic.ships;
 
 import gamelogic.Board;
 import gamelogic.Cell;
+import gamelogic.exceptions.CellIsOutOfBoundsException;
 
 import java.util.ResourceBundle;
 
@@ -37,7 +38,7 @@ public abstract class Ship
 		return this._vector;
 	}
 	
-	public Ship(Board b, int x, int y, ShipVector vector)
+	public Ship(Board b, int x, int y, ShipVector vector) throws CellIsOutOfBoundsException
 	{
 		this._bow = b.getCell(x, y);
 		this._vector = vector;

@@ -1,26 +1,41 @@
 package gamelogic;
 
+import gamelogic.exceptions.CellIsOutOfBoundsException;
+
 public class Board
 {
 	private Cell _Cells[][];
+	private int _size;
 	
 	public Cell[][] getCells()
 	{
-		return _Cells;
+		return this._Cells;
+	}
+	
+	public int getSize()
+	{
+		return this._size;
 	}
 	
 	public Board(int bound)
 	{
-		this._Cells = new Cell[bound][bound];
+		this._size = bound;
+		this._Cells = new Cell[this._size][this._size];
 		
-		for(int x = 0; x < bound; ++x)
-			for(int y = 0; y < bound; ++y)
+		for(int x = 0; x < this._size; ++x)
+			for(int y = 0; y < this._size; ++y)
 				this._Cells[x][y] = new Cell(x, y);
 	}
 
-	public Cell getCell(int x, int y)
+	public Cell getCell(int x, int y) throws CellIsOutOfBoundsException
 	{
-		return (((x >= 0) && (y >= 0) && (x < this._Cells.length) && (y < this._Cells[0].length)) ? this._Cells[x][y]
-				: null);
+		if((x >= 0) && (y >= 0) && (x < this._size) && (y < this._size))
+		{
+			return this._Cells[x][y];
+		}
+		else
+		{
+			throw new CellIsOutOfBoundsException();
+		}
 	}
 }
