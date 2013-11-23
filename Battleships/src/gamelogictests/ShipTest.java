@@ -1,7 +1,7 @@
 package gamelogictests;
 
 import static org.junit.Assert.*;
-import junit.framework.Assert;
+import javax.naming.OperationNotSupportedException;
 import gamelogic.Board;
 import gamelogic.Cell;
 import gamelogic.exceptions.CellIsOutOfBoundsException;
@@ -20,7 +20,8 @@ public class ShipTest
 	private static final int boardSize = 16;
 	
 	@Test
-	public void testBattleshipCreation() throws CellIsOutOfBoundsException
+	public void testBattleshipCreation() 
+			throws CellIsOutOfBoundsException, OperationNotSupportedException
 	{
 		Battleship ship = new Battleship(new Board(boardSize), 1, 1, ShipVector.Right);
 		
@@ -31,7 +32,8 @@ public class ShipTest
 	}
 	
 	@Test
-	public void testCruiserCreation() throws CellIsOutOfBoundsException
+	public void testCruiserCreation() 
+			throws CellIsOutOfBoundsException, OperationNotSupportedException
 	{
 		Cruiser ship = new Cruiser(new Board(boardSize), 1, 1, ShipVector.Right);
 		
@@ -42,7 +44,8 @@ public class ShipTest
 	}
 	
 	@Test
-	public void testDestroyerCreation() throws CellIsOutOfBoundsException
+	public void testDestroyerCreation() 
+			throws CellIsOutOfBoundsException, OperationNotSupportedException
 	{
 		Destroyer ship = new Destroyer(new Board(boardSize), 1, 1, ShipVector.Right);
 		
@@ -53,7 +56,8 @@ public class ShipTest
 	}
 	
 	@Test
-	public void testSubmarineCreation() throws CellIsOutOfBoundsException
+	public void testSubmarineCreation() 
+			throws CellIsOutOfBoundsException, OperationNotSupportedException
 	{
 		Submarine ship = new Submarine(new Board(boardSize), 1, 1, ShipVector.Right);
 		
@@ -64,7 +68,8 @@ public class ShipTest
 	}
 	
 	@Test
-	public void testMineCreation() throws CellIsOutOfBoundsException
+	public void testMineCreation() 
+			throws CellIsOutOfBoundsException, OperationNotSupportedException
 	{
 		Mine ship = new Mine(new Board(boardSize), 1, 1, ShipVector.Right);
 		
@@ -75,7 +80,8 @@ public class ShipTest
 	}
 	
 	@Test
-	public void testMinesweeperCreation() throws CellIsOutOfBoundsException
+	public void testMinesweeperCreation() 
+			throws CellIsOutOfBoundsException, OperationNotSupportedException
 	{
 		Minesweeper ship = new Minesweeper(new Board(boardSize), 1, 1, ShipVector.Right);
 		
@@ -87,14 +93,14 @@ public class ShipTest
 	
 	@Test
 	public void testCannotPlaceBattleshipOutsideTheGridNegativeX()
+		throws OperationNotSupportedException
 	{
 		Board board = new Board(boardSize);
 		Exception ex = null;
-		Battleship ship;
 		
 		try
 		{
-			ship = new Battleship(board, -1, 1, ShipVector.Up);
+			new Battleship(board, -1, 1, ShipVector.Up);
 		}
 		catch(Exception testEx)
 		{
@@ -107,14 +113,14 @@ public class ShipTest
 	
 	@Test
 	public void testCannotPlaceBattleshipOutsideTheGridNegativeY()
+			throws OperationNotSupportedException
 	{
 		Board board = new Board(boardSize);
 		Exception ex = null;
-		Battleship ship;
 		
 		try
 		{
-			ship = new Battleship(board, 1, -1, ShipVector.Up);
+			new Battleship(board, 1, -1, ShipVector.Up);
 		}
 		catch(Exception testEx)
 		{
@@ -127,14 +133,14 @@ public class ShipTest
 	
 	@Test
 	public void testCannotPlaceBattleshipBowInsideVectorAndSizeNegativeX()
+			throws OperationNotSupportedException
 	{
 		Board board = new Board(boardSize);
 		Exception ex = null;
-		Battleship ship;
-	
+		
 		try
 		{
-			ship = new Battleship(board, 1, 1, ShipVector.Left);
+			new Battleship(board, 1, 1, ShipVector.Left);
 		}
 		catch(Exception testEx)
 		{

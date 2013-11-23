@@ -22,9 +22,19 @@ public class Cell
 		return this._Revealed;
 	}
 
+	public void setRevealed(Boolean revealed)
+	{
+		this._Revealed = revealed;
+	}
+	
 	public Boolean isOccupied()
 	{
 		return this._Occupied;
+	}
+	
+	public void setOccupied(Boolean occupied)
+	{
+		this._Occupied = occupied;
 	}
 
 	public Cell(int x, int y)

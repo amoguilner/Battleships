@@ -1,5 +1,7 @@
 package gamelogic.ships;
 
+import javax.naming.OperationNotSupportedException;
+
 import gamelogic.Board;
 import gamelogic.exceptions.CellIsOutOfBoundsException;
 import gamelogic.resources.ShipResources;
@@ -7,11 +9,10 @@ import gamelogic.resources.ShipResources;
 public class Cruiser extends Ship
 {
 
-	public Cruiser(Board b, int x, int y, ShipVector vector) throws CellIsOutOfBoundsException
+	public Cruiser(Board b, int x, int y, ShipVector vector) 
+			throws CellIsOutOfBoundsException, OperationNotSupportedException
 	{
-		super(b, x, y, vector);
-		this._shipTypeKey = ShipResources.CruiserTypeKey;
-		this._size = 3;
+		super(b, x, y, vector, 3, ShipResources.CruiserTypeKey);
 	}
 	
 }
