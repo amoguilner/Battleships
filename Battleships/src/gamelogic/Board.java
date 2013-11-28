@@ -30,12 +30,8 @@ public class Board
 	public Cell getCell(int x, int y) throws CellIsOutOfBoundsException
 	{
 		if((x >= 0) && (y >= 0) && (x < this._size) && (y < this._size))
-		{
 			return this._Cells[x][y];
-		}
 		else
-		{
 			throw new CellIsOutOfBoundsException();
-		}
 	}
 }
